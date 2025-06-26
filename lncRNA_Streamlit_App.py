@@ -28,7 +28,7 @@ if expr_file and label_file:
     labels = pd.read_csv(label_file, index_col=0)
     common = expr.index.intersection(labels.index)
     X = expr.loc[common]
-    y = labels.loc[common, 'response']
+    y = labels.loc[common, 'resistance']
 
     # Filter low-expressed lncRNAs
     X = X.loc[:, (X.mean() > 0.3)]
